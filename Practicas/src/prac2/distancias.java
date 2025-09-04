@@ -7,10 +7,11 @@ public class distancias {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+	
 	double x1 = 0, x2 = 0, x3 = 0,y1 = 0, y2 = 0, y3 = 0;
 	double AB , BC , CA, CAAB;
-	
+	final double EPSILON = 0.0001; 
+
 	Scanner captura = new Scanner(System.in); 
 	
 	System.out.print("Ingrese las cordenadas de el punto A \nx1:");
@@ -40,9 +41,25 @@ public class distancias {
 	
 	String formateado11 = String.format("%.2f", CA); // %.2f para dos decimales
 	System.out.println("El resultado de AC es:" + formateado11);
-	
-	 if AB=BC=CAAB = BC = CAAB=BC=CA:
-	 	System.out.print("El triangulo es equilatero");
+
+		
+
+if (Math.abs(AB - BC) < EPSILON && Math.abs(BC - CA) < EPSILON) {
+System.out.println("El triángulo es equilátero");
+} else if (Math.abs(AB - BC) < EPSILON || Math.abs(BC - CA) < EPSILON || Math.abs(CA - AB) < EPSILON) {
+System.out.println("El triángulo es isósceles");
+} else {
+System.out.println("El triángulo es escaleno");
+}
+
+double AB2 = AB * AB, BC2 = BC * BC, CA2 = CA * CA;
+if (Math.abs(AB2 + BC2 - CA2) < EPSILON ||
+Math.abs(AB2 + CA2 - BC2) < EPSILON ||
+Math.abs(BC2 + CA2 - AB2) < EPSILON) {
+System.out.println("Además, el triángulo es rectángulo");
+		        
+		    }
+		}
 	}
 
-}
+
